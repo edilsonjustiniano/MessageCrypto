@@ -18,17 +18,17 @@ import br.com.edilson.justiniano.message.crypto.dao.UserDao;
 public class AppConfiguration {
 
 	@Bean
-	public UserService studentService() {
+	public UserService userService() {
 		return new UserServiceImpl();
 	}
 
 	@Bean
-	public UserDao studentDao() {
+	public UserDao userDao() {
 		return new UserDao();
 	}
 
 	@Bean
-	public UserBusiness studentBusiness(UserDao studentDao) {
+	public UserBusiness userBusiness(UserDao studentDao) {
 		return new UserBusiness(studentDao);
 	}
 
