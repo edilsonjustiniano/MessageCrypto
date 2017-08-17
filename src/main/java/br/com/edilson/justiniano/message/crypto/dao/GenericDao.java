@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 public class GenericDao<T, PK> {
 
 	@PersistenceContext
-	private EntityManager em;
+	protected EntityManager em;
 
 	public void save(T entity) {
 		em.persist(entity);
@@ -39,7 +39,7 @@ public class GenericDao<T, PK> {
 		return q.getResultList();
 	}
 
-	private Class<?> getTypeClass() {
+	protected Class<?> getTypeClass() {
 
 		Class<?> clazz = (Class<?>) ((ParameterizedType) this.getClass().getGenericSuperclass())
 		        .getActualTypeArguments()[0];

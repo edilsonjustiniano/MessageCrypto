@@ -1,14 +1,10 @@
 package br.com.edilson.justiniano.message.crypto.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.google.common.base.MoreObjects;
@@ -29,8 +25,8 @@ public class User {
 
 	private String password;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	private List<Message> messages;
+	// @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	// private List<Message> messages;
 
 	public Long getId() {
 		return id;

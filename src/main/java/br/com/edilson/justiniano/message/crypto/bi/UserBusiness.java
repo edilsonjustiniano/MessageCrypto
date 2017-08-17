@@ -23,4 +23,12 @@ public class UserBusiness {
 	public void createUser(User user) {
 		userDao.save(user);
 	}
+
+	public boolean isValidSignIn(User user) {
+		User retrievedUser = userDao.getByUsername(user.getUsername());
+		if (retrievedUser != null && user.getPassword().equals(retrievedUser.getPassword())) {
+			return true;
+		}
+		return false;
+	}
 }

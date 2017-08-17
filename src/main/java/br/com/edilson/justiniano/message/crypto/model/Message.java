@@ -1,11 +1,9 @@
 package br.com.edilson.justiniano.message.crypto.model;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,8 +16,10 @@ public class Message {
 
 	private String message;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	private User user;
+	private byte[] encryptMessage;
+
+	// @ManyToOne(fetch = FetchType.LAZY)
+	// private User user;
 
 	public Long getId() {
 		return id;
@@ -37,12 +37,20 @@ public class Message {
 		this.message = message;
 	}
 
-	public User getUser() {
-		return user;
+	public byte[] getEncryptMessage() {
+		return encryptMessage;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setEncryptMessage(byte[] encryptMessage) {
+		this.encryptMessage = encryptMessage;
 	}
+
+	// public User getUser() {
+	// return user;
+	// }
+	//
+	// public void setUser(User user) {
+	// this.user = user;
+	// }
 
 }
